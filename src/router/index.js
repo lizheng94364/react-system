@@ -10,15 +10,18 @@ import React from 'react';
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import Login from '@apps/Login'; // 登录页面
-import Home from '@apps/Home'; // 首页
+import DashBoard from '@apps/DashBoard';
+import Users from '@apps/User';
 
 export default function RouteMap() {
   return (
     <HashRouter>
       <Switch>
         <Route path='/login' exact strict component={Login} />
-        <Route path='/home' exact strict component={Home} />
-        <Redirect to='/login' />
+        <Route path="/" render={() =>
+          <DashBoard />
+        } />
+
       </Switch>
     </HashRouter>
   )
