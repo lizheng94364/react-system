@@ -1,0 +1,1 @@
+export { login_bg } from './login_bg.mp4';
