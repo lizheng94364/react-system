@@ -21,7 +21,6 @@ class Login extends Component {
 
   onFinish = (val) => {
     this.props.history.push('/home');
-    console.log("onfinish", val);
   };
   onFinishFailed = (val) => {
     console.log("onfinishfailed", val);

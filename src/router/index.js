@@ -7,11 +7,11 @@
  * @FilePath: /react-project/src/router/index.js
  */
 import React from 'react';
-import { HashRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 
 import Login from '@apps/Login'; // 登录页面
 import DashBoard from '@apps/DashBoard';
-import Users from '@apps/User';
+
 
 export default function RouteMap() {
   return (

@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout } from 'antd';
 import { observer } from 'mobx-react';
 import { SideMenu, TopHeader, DashFooter } from '@com';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import Routes from '../../router/Router'
 import _state from './index.state';
 import './index.less';
-import Home from '@apps/Home';
-import User from '@apps/User';
+
 
 const { Header, Content, Footer, Sider } = Layout;
 
 @observer
 class DashBoard extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  // 跳转首页
+  handleJump = () => {
+    this.props.history.push('/home');
+  }
 
   render() {
     let siderStyle = {
@@ -26,7 +34,7 @@ class DashBoard extends Component {
     return (
       <Layout className="lz-box-container">
         <Header>
-          <TopHeader />
+          <TopHeader handleJump={this.handleJump} />
         </Header>
         <Content>
           <Layout>
@@ -36,12 +44,7 @@ class DashBoard extends Component {
               </Sider>
             </div>
             <Content>
-              <Switch>
-                {/* home路由 */}
-                <Route path="/home" component={Home} />
-                <Route path="/user-manage/users" component={User} />
-                <Redirect from="/" to="/home" exact />
-              </Switch>
+              <Routes />
             </Content>
           </Layout>
         </Content>
@@ -53,4 +56,4 @@ class DashBoard extends Component {
   }
 }
 
-export default DashBoard;
+export default withRouter(DashBoard);
