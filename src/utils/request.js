@@ -16,7 +16,6 @@ service.interceptors.request.use(
   async config => {
     const userToken = RootStores.getUserToken();
     const { authorization } = userToken === null ? {} : userToken;
-
     config.headers = {
       'Content-Type': 'application/json',
       Anthorization: authorization

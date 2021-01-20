@@ -7,21 +7,24 @@ class RootStore {
   @observable userToken = null;
 
   @action
-  setUserToken = () => {
-    localMessage.setlocal(USER_TOKEN, 'lizheng')
+  setUserToken = (data) => {
+    if (data) {
+      localMessage.setlocal(USER_TOKEN, data.token)
+      this.userToken = data.token
+    }
   }
   @action
   initUserToken = async () => {
     let userToken = await localMessage.getlocal(USER_TOKEN);
-    if (!!userToken && userToken.name) {
-      userToken = userToken.name;
+    if (!!userToken && userToken) {
+      userToken = userToken;
     }
     this.userToken = userToken;
     return userToken;
   };
   @action
   getUserToken = () => {
-    if (!this.userToken || !this.userToken.name) {
+    if (!this.userToken || !this.userToken) {
       this.initUserToken();
     }
     return this.userToken || {};

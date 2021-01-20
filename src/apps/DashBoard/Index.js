@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 import Routes from '../../router/Router'
 import _state from './index.state';
 import './index.less';
-
+import RootStores from '@config/stores';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -16,10 +16,14 @@ class DashBoard extends Component {
     super(props)
   }
 
+  componentDidMount() {
+    console.log('进入', RootStores.getUserToken())
+  }
   // 跳转首页
   handleJump = () => {
     this.props.history.push('/home');
   }
+
 
   render() {
     let siderStyle = {

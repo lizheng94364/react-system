@@ -8,12 +8,13 @@
  */
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
-
 import Login from '@apps/Login'; // 登录页面
 import DashBoard from '@apps/DashBoard';
 
 
+
 export default function RouteMap() {
+
   return (
     <HashRouter>
       <Switch>

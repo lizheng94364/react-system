@@ -7,9 +7,6 @@ const { SubMenu } = Menu;
 import './index.less';
 
 
-
-
-
 export function SideMenu(props) {
   let history = useHistory();
   const renderMenu = useCallback(menu => {
