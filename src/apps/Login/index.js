@@ -10,16 +10,24 @@
 import React, { Component } from "react";
 import { Form, Input, Button } from "antd";
 import _state from './index.state';
+import RouteState from '@config/stores'
 
 const FormItem = Form.Item;
 const nameRules = { required: true, message: "请输入姓名" };
 const passwordRules = { required: true, message: "请输入密码" };
+import { loginData } from '@config/api';
 import "./index.less";
 class Login extends Component {
   formRef = React.createRef();
-  componentDidMount() { }
+  componentDidMount() {
+
+    loginData().then(res => {
+      console.log(res);
+    })
+  }
 
   onFinish = (val) => {
+    RouteState.setUserToken();
     this.props.history.push('/home');
   };
   onFinishFailed = (val) => {

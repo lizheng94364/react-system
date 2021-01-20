@@ -1,0 +1,1 @@
+export const USER_TOKEN = 'loginInfo'; // 用户信息

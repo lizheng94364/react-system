@@ -1,4 +1,4 @@
-export { default as lcalMessage } from './lcalMessage';
+export { default as localMessage } from './localMessage';
 export { _ } from './lodash'; //对象操作
 export { default as isEmptys } from './isEmptys'; //是否为空值
 

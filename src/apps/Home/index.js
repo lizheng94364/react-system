@@ -10,10 +10,8 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import _state from './index.state';
 import './index.style.less';
-import axios from '@config/axios';
 
 function Home() {
-  console.log(axios)
   return (
     <div id="home">
       {_state.name}
